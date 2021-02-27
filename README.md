@@ -240,4 +240,29 @@ SOCIALACCOUNT_PROVIDERS = {
 
 #### urls.py
 
-Go to `urls.py` file of your project directory and add the followingL
+Go to `urls.py` file of your project directory and add the allauth urls and specify `include` on top of import. We add a route /accounts that includes all django-allauth URLs. All OAuth operations will be performed under this route. 
+
+```python
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+```
+
+<hr>
+
+## Configuring Google APIs
+
+To add Google login on your app, you’ll need to set up OAuth application via [**Google Developers Console**](https://console.developers.google.com/).
+
+Head over to Google Developer APIs Console and **create a new project**:
+
+![Imgur Image](https://www.section.io/engineering-education/django-google-oauth/create-g-oauth-project.jpg)
+
