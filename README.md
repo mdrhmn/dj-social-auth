@@ -391,6 +391,10 @@ After successfully signed in with Google, you should be able to see your Google 
 
 ### User Information
 
+After signing in with Google, you can check the user information obtained from Google at: http://127.0.0.1:8000/admin/socialaccount/socialaccount/.
+
+**Google provides little information about its users**. To get more user information from Google, **your app needs to be verified**.
+
 A SocialAccount model instance is available for users who signed up using their social account.
 
 In your template, you can simply write:
@@ -401,12 +405,18 @@ In your template, you can simply write:
 - Last Login: `{{ user.socialaccount_set.all.0.last_login}}`
 - Full Name: `{{ user.socialaccount_set.all.0.extra_data.name }}`
 
+## Conclusion
+
+While this particular guide only tests the OAuth 2.0 authentication for Google, you can also integrate other OAuth services similarly using `django-allauth`. Refer to their [list of providers](https://django-allauth.readthedocs.io/en/latest/providers.html) for more information.
+
 ## References
 1. https://github.com/pennersr/django-allauth
 2. https://django-allauth.readthedocs.io/en/latest/index.html
-3. https://developers.google.com/gmail/api/quickstart/js
-4. https://www.youtube.com/watch?v=NG48CLLsb1A
-5. https://www.section.io/engineering-education/django-google-oauth/
-6. https://whizzoe.medium.com/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5
-7. https://stackoverflow.com/questions/8477530/how-to-access-user-names-and-profiles-with-django-allauth
-8. https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/models.py#L89
+3. https://django-allauth.readthedocs.io/en/latest/installation.html
+4. https://django-allauth.readthedocs.io/en/latest/providers.html
+5. https://developers.google.com/gmail/api/quickstart/js
+6. https://www.youtube.com/watch?v=NG48CLLsb1A
+7. https://www.section.io/engineering-education/django-google-oauth/
+8. https://whizzoe.medium.com/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5
+9. https://stackoverflow.com/questions/8477530/how-to-access-user-names-and-profiles-with-django-allauth
+10. https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/models.py#L89
