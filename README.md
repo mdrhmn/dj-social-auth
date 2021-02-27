@@ -166,6 +166,8 @@ If everything works well, we should see an instance of a Django application runn
 
 `django-allauth` is an **integrated set of Django applications** addressing **authentication, registration, account management** as well as **3rd party (social) account authentication**. It offers  a fully integrated authentication app that allows for both local and social authentication, with flows that just work.
 
+<br>
+
 ### Installing django-allauth
 
 To install `django-allauth`:
@@ -173,6 +175,8 @@ To install `django-allauth`:
     $ pip install django-allauth # (Python 2)
     $ pip3 install django-allauth # (Python 3)
 ``` 
+
+<br>
 
 ### Configuring django-allauth
 
@@ -236,6 +240,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 ```
+
+<br>
 
 #### urls.py
 
