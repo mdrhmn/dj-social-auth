@@ -289,12 +289,12 @@ Next, register your app by filling the **OAuth consent screen**. You only need t
 Back to 'Dashboard', **go to 'Credentials'** on left panel and **click 'Create Credentials' button at the top**. On the dropdown, **choose 'OAuth Client ID' option**.
 
 Under **'Authorized JavaScript origins'**, add the following URIs:
-- http://localhost:8000
-- http://127.0.0.1:8000
+- `http://localhost:8000`
+- `http://127.0.0.1:8000`
 
 Under **'Authorized redirect URIs'**, add the following URIs:
-- http://127.0.0.1:8000/accounts/google/login/callback/
-- http://localhost:8000/accounts/google/login/callback/
+- `http://127.0.0.1:8000/accounts/google/login/callback/`
+- `http://localhost:8000/accounts/google/login/callback/`
 
 The reason why we have two near-identical copies of URIs is because Django web server can be accessed using either `localhost:8000` or `127.0.0.1:8000`. Also, should the app be in production, the URIs should be amended to include the domain name instead.
 
@@ -329,10 +329,12 @@ NOTE: It is possible that **Django created an 'example.com' site for you already
 Then, under **Social Applications**, **click Add** and fill in the details as follows:
 
 - Provider: Google
-- Name: <APP_NAME>
-- Client id: <CLIENT_ID> (from Step 3)
-- Secret key: <SECRET_KEY> (from Step 3)
-- Sites: Select your Site in 'Available sites' and click the arrow to move it into 'Chosen sites'
+- Name: `<APP_NAME>`
+- Client id: `<CLIENT_ID>` (from Step 3)
+- Secret key: `<SECRET_KEY>` (from Step 3)
+- Sites: **Select your Site** in 'Available sites' and **click the arrow** to move it into 'Chosen sites'
+
+![Imgur Image](https://www.section.io/engineering-education/django-google-oauth/add-social-app.jpg)
 
 Since you are currently logged in as a superuser, **logout and login again using your Google account** to test out the authentication.
 
@@ -342,7 +344,7 @@ If you get an error: `SocialApp matching query does not exist` at http://127.0.0
 
 It is possible that Django created an 'example.com' site for you already (if it's not a new project). So if this is the case you will need to delete that entry from the Sites admin page **AND** change the `SITE_ID` in `settings.py` to be the correct ID (probably 2 rather than 1)
 
-Consider playing around with the `SITE_ID `value. For example: `SITE_ID = 3`, etc.
+Consider playing around with the `SITE_ID` value. For example: `SITE_ID = 3`, etc.
 
 <br>
 
