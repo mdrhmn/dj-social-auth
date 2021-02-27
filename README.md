@@ -389,6 +389,19 @@ After successfully signed in with Google, you should be able to see your Google 
 
 ![Imgur Image](https://miro.medium.com/max/661/1*Ae9WEWomxfBXs8O0suZMZw.jpeg)
 
+### User Information
+
+A SocialAccount model instance is available for users who signed up using their social account.
+
+In your template, you can simply write:
+
+Avatar URL: `{{ user.socialaccount_set.all.0.get_avatar_url }}`
+UID: `{{ user.socialaccount_set.all.0.uid }}`
+Date Joined: `{{ user.socialaccount_set.all.0.date_joined}}`
+Last Login: `{{ user.socialaccount_set.all.0.last_login}}`
+
+And for Full Name: `{{ user.socialaccount_set.all.0.extra_data.name }}`
+
 ## References
 1. https://github.com/pennersr/django-allauth
 2. https://django-allauth.readthedocs.io/en/latest/index.html
@@ -396,3 +409,5 @@ After successfully signed in with Google, you should be able to see your Google 
 4. https://www.youtube.com/watch?v=NG48CLLsb1A
 5. https://www.section.io/engineering-education/django-google-oauth/
 6. https://whizzoe.medium.com/in-5-mins-set-up-google-login-to-sign-up-users-on-django-e71d5c38f5d5
+7. https://stackoverflow.com/questions/8477530/how-to-access-user-names-and-profiles-with-django-allauth
+8. https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/models.py#L89
