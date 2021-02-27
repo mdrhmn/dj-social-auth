@@ -409,6 +409,8 @@ In your template, you can simply write:
 
 While this particular guide only tests the OAuth 2.0 authentication for Google, you can also integrate other OAuth services similarly using `django-allauth`. Refer to their [list of providers](https://django-allauth.readthedocs.io/en/latest/providers.html) for more information.
 
+All in all, I am glad that I managed to figure out how to implement social authentication in Django. It's much easier than I thought it would be and I hope this will be useful for future projects.
+
 ## References
 1. https://github.com/pennersr/django-allauth
 2. https://django-allauth.readthedocs.io/en/latest/index.html
