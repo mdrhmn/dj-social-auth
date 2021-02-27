@@ -1,6 +1,8 @@
 # Django OAuth 2.0 Google Authentication
 This is a sample project to explore social (Google) OAuth 2.0 authentication integration with Django using [`django-allauth`](https://django-allauth.readthedocs.io/en/latest/index.html).
 
+![alt text](https://imgur.com/uK7tcwS.png)
+
 ## Getting Started with Django
 
 ### 1. Set up your Django project
