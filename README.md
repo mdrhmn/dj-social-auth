@@ -271,9 +271,9 @@ To add Google login on your app, you’ll need to set up OAuth application via [
 
 Head over to Google Developer APIs Console and **create a new project**:
 
-- Go to Dashboard, create a New Project
-- Name your new project, preferably your website or app name. User will be able to see this project name when we redirect them to Google login page.
-- Click 'Create' to proceed.
+- Go to **Dashboard**, **create a New Project**
+- **Name your new project**, preferably your website or app name. User will be able to see this project name when we redirect them to Google login page.
+- **Click 'Create'** to proceed.
 
 ![Imgur Image](https://www.section.io/engineering-education/django-google-oauth/create-g-oauth-project.jpg)
 
