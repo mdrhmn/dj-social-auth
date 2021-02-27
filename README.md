@@ -395,12 +395,11 @@ A SocialAccount model instance is available for users who signed up using their 
 
 In your template, you can simply write:
 
-Avatar URL: `{{ user.socialaccount_set.all.0.get_avatar_url }}`
-UID: `{{ user.socialaccount_set.all.0.uid }}`
-Date Joined: `{{ user.socialaccount_set.all.0.date_joined}}`
-Last Login: `{{ user.socialaccount_set.all.0.last_login}}`
-
-And for Full Name: `{{ user.socialaccount_set.all.0.extra_data.name }}`
+- Avatar URL: `{{ user.socialaccount_set.all.0.get_avatar_url }}`
+- UID: `{{ user.socialaccount_set.all.0.uid }}`
+- Date Joined: `{{ user.socialaccount_set.all.0.date_joined}}`
+- Last Login: `{{ user.socialaccount_set.all.0.last_login}}`
+- Full Name: `{{ user.socialaccount_set.all.0.extra_data.name }}`
 
 ## References
 1. https://github.com/pennersr/django-allauth
