@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load socialaccount %}
+
+    <title>Django Social Authentication</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta data-n-head="ssr" data-hid="description" name="description"
+        content="A sample Django project to test Firebase Storage">
+    <link data-n-head="ssr" rel="icon" type="image/png" sizes="96x96"
+        href="https://cdn2.hubspot.net/hubfs/3885898/django.png">
+    <meta data-n-head="ssr" data-hid="image" name="image" property="og:image"
+        content="https://cdn2.hubspot.net/hubfs/3885898/django.png">
+
+    <!-- Responsive Design -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+
+    <!-- Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body>
+
+    <div
+        class="h-screen w-full flex max-w-md mx-auto overflow-hidden md:max-w-2xl flex-col justify-center items-center">
+        <div class="md:flex max-w-lg bg-white shadow-md rounded-lg">
+
+            <div class="p-8">
+
+                <div class="flex flex-col mb-8">
+                    <h2 class="text-gray-700 font-semibold text-2xl tracking-wide mb-2">Django Social Authentication
+                    </h2>
+                    <p class="text-gray-500 text-base">This is a sample project to explore social (Google) OAuth authentication
+                        integration with Django using <a href="https://django-allauth.readthedocs.io/en/latest/index.html"><b>django-allauth</b></a>.</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                <figure class="bg-gray-100 rounded-xl p-8">
+                    <img class="w-32 h-32 rounded-full mx-auto" src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
+                        alt="" width="384" height="512">
+                    <div class="pt-6 text-center md:text-left space-y-4">
+                        <blockquote>
+                            <p class="text-lg font-semibold">
+                                You are signed in!
+                            </p>
+                        </blockquote>
+                        <figcaption class="font-medium">
+                            <div class="text-cyan-600">
+                                {{ user.socialaccount_set.all.0.extra_data.name }}!
+                            </div>
+                            <div class="text-gray-500">
+                                Email: {{ user.email }}
+                            </div>
+                        </figcaption>
+                    </div>
+                </figure>
+
+                {% else %}
+
+                <div class="bg-gray-100 rounded-lg">
+                    <div class="py-4 px-4">
+                        <div class="flex flex-col">
+                            <h4 class="text-lg font-semibold mb-3">Checklist:</h4>
+                            <div class="flex flex-col text-sm text-gray-500">
+                                <ul class="list-inside list-disc">
+                                    <li>Make sure all dependencies are installed (pip install -r requirements.txt)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+
+                <div class="flex justify-center py-4">
+
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'account_logout' %}" style="text-decoration: none;"
+                        class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Sign
+                        Out</a>
+                    {% else %}
+                    <div class="google-btn">
+                        <a href="{% provider_login_url 'google' %}">
+                            <div class="google-icon-wrapper">
+                                <img class="google-icon"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                            </div>
+                            <p class="btn-text"><b>Sign in with Google</b></p>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="flex flex-col">
+                    <p class="text-gray-500 text-base text-center">© 2021 Muhd Rahiman</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
