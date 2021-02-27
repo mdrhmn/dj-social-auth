@@ -348,7 +348,7 @@ Since you are currently logged in as a superuser, **logout and login again using
 
 If you get an error: `SocialApp matching query does not exist` at http://127.0.0.1:8000/accounts/google/login/, it means that the **ID of the site you created in Django admin** is **not the same** as the one in `settings.py`. 
 
-It is possible that Django created an 'example.com' site for you already (if it's not a new project). So if this is the case you will need to delete that entry from the Sites admin page **AND** change the `SITE_ID` in `settings.py` to be the correct ID (probably 2 rather than 1)
+It is possible that **Django created an 'example.com' site for you already** (if it's not a new project). So if this is the case you will need to delete that entry from the Sites admin page **AND** change the `SITE_ID` in `settings.py` to be the correct ID (probably 2 rather than 1).
 
 Consider playing around with the `SITE_ID` value. For example: `SITE_ID = 3`, etc.
 
