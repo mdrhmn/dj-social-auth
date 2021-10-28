@@ -250,17 +250,14 @@ SOCIALACCOUNT_PROVIDERS = {
 Go to `urls.py` file of your project directory and add the allauth urls and specify `include` on top of import. We add a route /accounts that includes all django-allauth URLs. All OAuth operations will be performed under this route. 
 
 ```python
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+    path('', include('main.urls')),
+]
 ```
 
 <hr>
